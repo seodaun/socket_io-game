@@ -1,4 +1,3 @@
-
 function game(){
     this.players =[];
     this.localPlayer;
@@ -15,7 +14,7 @@ game.prototype.addPlayer = function(id,pos,isLocal){
 game.prototype.removePlayer = function(playerId){ 
 	for(var p = 0;p<this.players.length;p++){  
 		if(this.players[p].id == playerId){ 
-			this.players.splice(p,1); 
+			this.players.splice(p,1);   
 			break;
 		}
 	}

@@ -13,7 +13,10 @@ GameServer.prototype = {
     },
     removePlayer: function(playerId){
         for(var p = 0; p <this.players.length;p++){
-            this.players.splice(p,1);
+            if (this.players[p].id == playerId) {
+                this.players.splice(p,1);
+                break;
+            }
         }
     },
     syncPlayer: function(newPlayerData){
@@ -52,12 +55,12 @@ io.on('connection', function (socket) {
 	});
     socket.on('disconnect', function () {
         console.log(socket.id + 'has leaved!');
-        game.removePlayer(socket.id)
+        game.removePlayer(socket.id);
         socket.broadcast.emit('removePlayer',socket.id);
     });  
     
 });
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 http.listen(port, function () {
     console.log('server on!');
     console.log('http://localhost:'+port);

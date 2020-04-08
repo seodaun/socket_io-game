@@ -21,10 +21,10 @@ GameState.prototype.Update = function(){
 	}
 	if(GAME.players.length != 0){
 		for(var p = 0;p<GAME.players.length;p++){ 
-			GAME.players[p].Update();
+			GAME.players[p].Update();//외부플레이어의 정보
 		}
 	} 
-	GAME.sendData();
+	GAME.sendData();//자신의 정보
 }
 
 GameState.prototype.Render = function(){  
@@ -34,7 +34,8 @@ GameState.prototype.Render = function(){
 	Context.fillRect(0,0,800,600); 
 	Context.fillStyle = "#ffffff";  
 	Context.font = '15px Arial';  
-	Context.fillText("gameobj: "+GAME.players.length, 10, 20);
+	Context.fillText("들어온 플레이어: "+GAME.players.length, 10, 20);
+	Context.fillText("방향키로 움직여", 10, 50);
 	if(GAME.localPlayer) GAME.localPlayer.Render();
 	if(GAME.players.length != 0){
 		for(var p = 0;p<GAME.players.length;p++){
