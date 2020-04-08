@@ -1,5 +1,5 @@
 
-const socket = io("http://localhost:8080");
+const socket = io("https://test-0605.herokuapp.com");
 
 socket.on("addPlayer", function(data) {
     GAME.addPlayer(data.id, new Vector2d(data.x,data.y),data.isLocal);
