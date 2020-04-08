@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 
 var port = process.env.PORT || 8080; 
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/client.html'));
 
 io.on('connection', function (socket) {
     console.log(`${socket.id} has joined!`);
