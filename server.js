@@ -30,7 +30,7 @@ GameServer.prototype = {
                 break;
             }
         }
-    }
+    },
     syncPlayer: function(newPlayerData){
 		this.players.forEach( function(player){
 			if(player.id == newPlayerData.id){

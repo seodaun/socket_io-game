@@ -18,6 +18,9 @@ GameState.prototype.Update = function(){
 		if(INPUT.isKeyDown(40)){ 
 			GAME.localPlayer.pos.y += 5;
 		} 
+		if(INPUT.isClickDown()){
+			
+		}
 	}
 	if(GAME.players.length != 0){
 		for(var p = 0;p<GAME.players.length;p++){ 
