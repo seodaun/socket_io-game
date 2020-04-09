@@ -6,10 +6,14 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 function GameServer(){
     this.players = [];
+    this.bullets = [];
 }
 GameServer.prototype = {
     addPlayer: function(player){
         this.players.push(player);
+    },
+    addBullet: function(bullet){
+        this.bullets.push(bullet);
     },
     removePlayer: function(playerId){
         for(var p = 0; p <this.players.length;p++){
@@ -19,6 +23,14 @@ GameServer.prototype = {
             }
         }
     },
+    removeBullet: function(isDead){
+        for(var b = 0; b <this.bullets.length;b++){
+            if (this.bullets[b].isDead == true) {
+                this.bullets.splice(b,1);
+                break;
+            }
+        }
+    }
     syncPlayer: function(newPlayerData){
 		this.players.forEach( function(player){
 			if(player.id == newPlayerData.id){

@@ -25,7 +25,7 @@ Input.prototype.isClickDown = function(){
 	else{ 
 		return false; 
 	}
-} 
+}  
 Input.prototype.getMousePos = function(){
 	return this.mousePos;
 }
