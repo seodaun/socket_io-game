@@ -64,7 +64,4 @@ var port = process.env.PORT || 3000;
 http.listen(port, function () {
     console.log('server on!');
     console.log('http://localhost:'+port);
-}); 
-setInterval(function() {
-    http.get("http://test-0605.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
+});  
